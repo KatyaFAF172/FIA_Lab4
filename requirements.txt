@@ -17,7 +17,7 @@ keras-models==0.0.7
 layers==0.1.5
 Keras==2.4.3
 metrics==0.3.3
-math2==0.0.1.dev5
+PySigmoid.Math==0.3
 flask-ngrok==0.0.25
 flask==1.1.2
 gunicorn
