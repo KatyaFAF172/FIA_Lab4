@@ -1,7 +1,12 @@
-app = Flask(__name__)
+import pandas as pd
+import numpy as np
+import dateparser
+import os
+from sklearn.linear_model import LinearRegression
+from plotly import graph_objs as go
 
-run_with_ngrok(app)   #starts ngrok when the app is run
-@app.route("/")
+
+
 def home():
     uploaded = files.upload()
     df = pd.read_csv('apartmentComplexData.csv')
@@ -45,17 +50,17 @@ def home():
     rms = sqrt(mean_squared_error(y_train, model.predict(X_train)))
     print ('Training Data have Root Mean Squared Error of {}'.format(rms))
     # Vizualiation (actual vs predicted) on training dataset
-    fig, ax = plt.subplots()
-    ax.scatter(train_result['actual'], train_result['predicted'])
-    ax.plot([train_result['actual'].min(), train_result['actual'].max()], [train_result['actual'].min(), train_result['actual'].max()], 'k--', lw=4)
-    ax.set_xlabel('Actual')
-    ax.set_ylabel('Predicted')
-    plt.show()
-    # Save it to a temporary buffer.
-    buf = BytesIO()
-    fig.savefig(buf, format="png")
-    # Embed the result in the html output.
-    data = base64.b64encode(buf.getbuffer()).decode("ascii")
-    return f"<img src='data:image/png;base64,{data}'/>"
-  
-app.run()
+    
+    fig = go.Figure(layout=go.Layout(height=400, width=1024))
+    fig.add_trace(go.Scatter(x = train_result['actual'],
+                             y = train_result['predicted'],
+                             fill = None, mode = 'lines+markers',
+                             line = {'color':'blue'}))
+    fig.update_layout(
+            title_text = "Happy Client", xaxis_title = 'Actual',
+                      yaxis_title = 'Predicted')
+    return fig
+
+
+if __name__ =="__main__":
+    app.run_server()
