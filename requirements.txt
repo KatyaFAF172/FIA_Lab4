@@ -13,7 +13,6 @@ jupyter-io==0.2.0
 tensorflow==2.4.1
 sklearn2==0.0.13
 preprocessing==0.1.13
-model-selection==0.0.1
 keras-models==0.0.7
 layers==0.1.5
 Keras==2.4.3
