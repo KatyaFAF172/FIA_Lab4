@@ -5,7 +5,10 @@ import os
 from sklearn.linear_model import LinearRegression
 from plotly import graph_objs as go
 
+app = Flask(__name__)
 
+run_with_ngrok(app)   #starts ngrok when the app is run
+@app.route("/")
 
 def home():
     uploaded = files.upload()
@@ -62,5 +65,4 @@ def home():
     return fig
 
 
-if __name__ =="__main__":
-    app.run_server()
+app.run()
