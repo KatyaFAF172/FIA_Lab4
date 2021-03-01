@@ -64,5 +64,4 @@ def home():
                       yaxis_title = 'Predicted')
     return fig
 
-
 app.run()
