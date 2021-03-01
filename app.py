@@ -1,8 +1,3 @@
-import pandas as pd
-import numpy as np
-import dateparser
-import os
-from sklearn.linear_model import LinearRegression
 from plotly import graph_objs as go
 
 app = Flask(__name__)
