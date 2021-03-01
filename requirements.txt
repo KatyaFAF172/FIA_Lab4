@@ -9,15 +9,4 @@ dash_core_components==1.10.1
 pandas==1.1.4
 dash==1.13.3
 scikit_learn==0.23.2
-jupyter-io==0.2.0
-tensorflow==2.4.1
-sklearn2==0.0.13
-preprocessing==0.1.13
-keras-models==0.0.7
-layers==0.1.5
-Keras==2.4.3
-metrics==0.3.3
-PySigmoid.Math==0.3
-flask-ngrok==0.0.25
-flask==1.1.2
 gunicorn
